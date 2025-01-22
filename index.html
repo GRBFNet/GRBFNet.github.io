@@ -1,0 +1,235 @@
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clarity: A Minimalist Website Template for AI Research</title>
+    <meta name="description" content="We've presented Clarity, a minimalist and elegant website template for AI research.">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <meta name="robots" content="all">
+    <meta content="en_EN" property="og:locale">
+    <meta content="website" property="og:type">
+    <meta content="https://shikun.io/projects/clarity" property="og:url">
+    <meta content="Clarity" property="og:title">
+    <meta content="Website Template for AI Research" property="og:description">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@your_twitter_id">
+    <meta name="twitter:description" content="Clarity: A Minimalist Website Template for AI Research">
+    <meta name="twitter:image:src" content="assets/figures/clarity.png">
+
+    <link rel="stylesheet" type="text/css" media="all" href="assets/stylesheets/main_free.css" />
+    <link rel="stylesheet" type="text/css" media="all" href="clarity/clarity.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/foundation.min.css">
+    <link href="assets/fontawesome-free-6.6.0-web/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/img-comparison-slider@8/dist/styles.css"/>
+    <script defer src="https://cdn.jsdelivr.net/npm/img-comparison-slider@8/dist/index.js"></script>
+    <script src="assets/scripts/navbar.js"></script> <!-- Comment to remove table of content. -->
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            "HTML-CSS": {
+              scale: 95,
+              fonts: ["Gyre-Pagella"],
+              imageFont: null,
+              undefinedFamily: "'Arial Unicode MS', cmbright"
+            },
+            tex2jax: {
+                inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                processEscapes: true
+              }
+          });
+    </script>
+    <script type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <!-- Title Page -->
+    <!-- Dark Theme Example: Change the background colour dark and change the following div "blog-title" into "blog-title white". -->
+    <div class="container blog" id="first-content" style="background-color: #E0E4E6;">
+        <!-- If you don't have a project cover: Change "blog-title" into "blog-title no-cover"  -->
+     
+            <div class="blog-intro">
+                <div>
+                    <h1 class="title">Gaussian RBFNet: Gaussian Radial Basis Functions for Fast and
+                        Accurate Neural Fields Representation and Reconstruction</h1>
+                    <p class="author">Anonymous Author(s)</p>
+                    <p class="abstract">
+                        We propose Gaussian RBFNet, a novel framework that uses Radial Basis Functions with Gaussian kernels to represent
+                        neural fields. We demonstrate its performance in representing 3D geometry, RGB images, and radiance fields.                    </p>
+                   
+                </div>
+                <h1>
+                    
+                </h1>
+                <div>
+
+               </div>
+                <div class="info">
+                    <div>
+                        <a href="https://anonymous.4open.science/r/GRBFNet" class="button icon" style="background-color: rgba(255, 255, 255, 0.25); margin-bottom: 0;">Source Code <i class="fa-solid fa-code"></i></a>
+                        <a href="" class="button icon" style="background-color: rgba(255, 255, 255, 0.25); margin-bottom: 0;"> Paper <i class="fa-solid fa-sheet-plastic"></i></a>
+                    </div>
+                    
+            </div>
+
+            <!-- <div class="blog-cover">
+                <img class="foreground" src="assets/figures/clarity.png">
+                <img class="background" src="assets/figures/clarity.png">
+            </div> -->
+        </div>
+    </div>
+
+
+    <div class="container blog main first" id="blog-main">
+        <h1>
+            Introduction
+        </h1>
+        <p class='text'>
+            In this paper, we introduce a novel neu-
+            ral representation that is fast, both at training and inference times,
+            and lightweight. Our key observation is that the neurons used in
+            traditional MLPs perform simple computations (a dot product fol-
+            lowed by ReLU activation) and thus one needs to use either wide
+            and deep MLPs or high-resolution and high-dimensional feature
+            grids to parameterize complex nonlinear functions. We show in
+            this paper that by replacing traditional neurons with Radial Basis
+            Function (RBF) kernels, one can achieve highly accurate represen-
+            tation of 2D (RGB images), 3D (geometry), and 5D (radiance fields)
+            signals with just a single layer of such neurons. The representation is highly parallelizable, operates on low-resolution feature grids,
+            and is compact and memory-efficient.        </p>
+
+    </div>
+
+
+    <div class="container blog main white extra-large ">
+            <img src="assets/figures/fig-1.png">
+            <p class="caption">
+                we show our model (third figure from the left) compares to other methods, our model stand out with the lienar decoding layer compared to other neural fields models
+            </p>
+        </div>
+    </div>
+
+
+
+   
+    <div class="container blog main">
+        <h1 >
+            SDF Estimation
+        </h1>
+        <p class='text'>
+            The following meshes represent the zero-level set of the SDF estimation obtained using our model and the DiF-grid model from FactorFields, our model uses arround 3.5M parameters and takes 15 seconds to converge, while DiD-Grid has arround 5M parameters and converge in 20 seconds. 
+         </p>
+    </div>
+
+    <div class="container blog main white extra-large max">
+        <div class="columns-2">
+            <img-comparison-slider class="slider-container white">
+                <figure slot="first" class="before">
+                    <img src="assets/figures/ff.png">
+                    <figcaption class="black"><code><b>DiF-Grid(FactorFields)</b></code></figcaption>
+                </figure>
+                <figure slot="second" class="after">
+                    <img src="assets/figures/ours.png">
+                    <figcaption class="black"><code><b>GRBFNet</b></code></figcaption>
+                </figure>
+            </img-comparison-slider>
+            <img-comparison-slider class="slider-container white">
+                <figure slot="first" class="before">
+                    <img src="assets/figures/ff_2.png">
+                    <figcaption class="black"><code><b>DiF-Grid(FactorFields)</b></code></figcaption>
+                </figure>
+                <figure slot="second" class="after">
+                    <img src="assets/figures/ours_2.png">
+                    <figcaption class="black"><code><b>GRBFNet</b></code></figcaption>
+                </figure>
+            </img-comparison-slider>
+        </div>
+        
+    
+    
+    
+        <!-- 
+        1. You may add another row of visual elements by simply adding a video element in each "slider-item" div. Correspondingly, you need to change the following in the scss file (under Slideshow Control): height: 440px into 440px * num_rows. 
+        2. You may also change the fixed image size by changing the following:
+            a. scss: .slider-item width: 400px -> changed width; 
+            b. scss: height: 440px -> changed width + padding_bottom;
+            c. javascript: item.style.left = `${(i-1) * 440}px`) -> changed width + padding_left
+        -->
+    </div>
+   
+</div>
+
+<div class="container blog main first" id="blog-main">
+    <h1>
+        Gaussian RBF-SH radiance fields network
+    </h1>
+    <p class='text'>
+        We generalize our famework to a higher number of outputs to estimate spherical harmonics which allows performing novel views generation 
+    </p>
+
+</div>
+<div class="container blog main white">
+        <img src="assets/figures/Gaussian RBF-SH.jpg">
+        <p class="caption">
+            Network architecture of thre radiance fields model
+        </p>
+    </div>
+</div>
+
+
+
+
+  
+    <div class="container blog max white">
+        <div class="slideshow">
+            <div class="navigation">
+                <!-- Using FontAwesome Pro -->
+                <!-- <a class="button icon" id="prev_btn"><i class="fa-solid fa-left" ></i></a>
+                <a class="button icon" id="next_btn"><i class="fa-solid fa-right"></i></a> -->
+                <!-- Using FontAwesome Free -->
+                <a class="button icon" id="prev_btn"><i class="fa-solid fa-arrow-left"></i></a>
+                <a class="button icon" id="next_btn"><i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+            <div class="slider">
+                <div class="slider-item">
+                    <video loop playsinline muted autoplay src="clarity/videos/chair.mp4"></video>
+                </div>
+                <div class="slider-item">
+                    <video loop playsinline muted autoplay src="clarity/videos/mic.mp4"></video>
+                </div>
+                <div class="slider-item">
+                    <video loop playsinline muted autoplay src="clarity/videos/ship.mp4"></video>
+                </div>
+                <div class="slider-item">
+                    <video loop playsinline muted autoplay src="clarity/videos/ficus.mp4"></video>
+                </div>
+                <div class="slider-item">
+                    <video loop playsinline muted autoplay src="clarity/videos/lego.mp4"></video>
+                </div>
+            </div>
+            <p class="caption">
+                Novel views genrated with our model
+            </p>
+        </div>
+    </div>
+
+    
+
+    <div class="container blog main gray">
+        <div class="slide-menu">
+            <ul class="dots" id="slide-menu">
+
+            </ul>
+        </div>
+       
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="clarity/clarity.js"></script>    
+    <script src="assets/scripts/main.js"></script>    
+    </html>
+</body>
