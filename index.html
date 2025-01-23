@@ -4,7 +4,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GRBFNet: Gaussian Radial Basis Functions for Fast and Accurate Neural Fields Representation and Reconstruction</title>
-    <meta name="description" content="We've presented Gaussian RBFNet, a fast and compact framwork for neural fields representation.">
+    <meta name="description" content="We've presented Gaussian RBFNet, a fast and compact framework for neural fields representation.">
     <meta name="referrer" content="no-referrer-when-downgrade">
     <meta name="robots" content="all">
     <meta content="en_EN" property="og:locale">
@@ -64,8 +64,7 @@
                     </div>
 
                     <p class="abstract">
-                        We propose Gaussian RBFNet, a novel framework that uses Radial Basis Functions with Gaussian kernels to represent
-                        neural fields. We demonstrate its performance in representing 3D geometry, RGB images, and radiance fields.                    </p>
+                        We introduce Gaussian RBFNet, a novel framework that leverages Gaussian Radial Basis Functions to represent neural fields efficiently. We demonstrate its effectiveness in representing 3D geometry, RGB images, and radiance fields.                    </p>
                    
                 </div>
                 <h1>
@@ -93,7 +92,7 @@
             Introduction
         </h1>
         <p class='text'>
-            In this paper, we present a novel neural representation that is both fast—during training and inference—and lightweight. Our key insight is that the neurons used in traditional MLPs perform only simple computations, consisting of a dot product followed by a ReLU activation. As a result, achieving complex nonlinear function representations typically requires shallow MLPs and high-resolution, high-dimensional feature grids. In this work, we demonstrate that by replacing traditional neurons with Radial Basis Function (RBF) kernels, we can achieve highly accurate representations of diverse signals, including 2D (RGB images), 3D (geometry), and 5D (radiance fields), using just a single layer of such neurons. Our proposed representation is highly parallelizable, leverages low-resolution feature grids, and offers a compact, memory-efficient solution.        </p>
+            In this paper, we present a novel neural representation that is both fast in training and inference and lightweight. Our key insight is that traditional MLP neurons perform only simple computations, involving a dot product followed by a ReLU activation. Consequently, achieving complex nonlinear function representations usually requires shallow MLPs and high-resolution, high-dimensional feature grids. We demonstrate that by replacing traditional neurons with Radial Basis Function (RBF) kernels, our approach can accurately represent diverse signals, including 2D (RGB images), 3D (geometry), and 5D (radiance fields), using just a single layer of such neurons. Our proposed representation is highly parallelizable, leverages low-resolution feature grids, and offers a compact, memory-efficient solution.       </p>
 
     </div>
 
@@ -101,7 +100,7 @@
     <div class="container blog main white ">
             <img src="assets/figures/fig-1.png">
             <p class="caption">
-                we show our model (third figure from the left) compares to other methods, our model stand out with the lienar decoding layer compared to other neural fields models
+                we show our model (third figure from the left) compares to other methods, Our model stands out with its linear decoding layer compared to other neural field models.
             </p>
         </div>
     </div>
@@ -114,7 +113,7 @@
             SDF Estimation
         </h1>
         <p class='text'>
-            The following meshes represent the zero-level set of the SDF estimation obtained using our model and the DiF-grid model from FactorFields, our model uses arround 3.5M parameters and takes 15 seconds to converge, while DiF-Grid has arround 5M parameters and converge in 20 seconds. 
+            The following meshes represent the zero-level set of the SDF estimation obtained using our model and the DiF-Grid model from FactorFields. Our model uses approximately 3.5M parameters and converges in 15 seconds, whereas DiF-Grid has around 5M parameters and takes 20 seconds to converge.
          </p>
     </div>
 
@@ -163,26 +162,31 @@
     </img-comparison-slider>
         </div>
         
-    
-    
-    
-        <!-- 
-        1. You may add another row of visual elements by simply adding a video element in each "slider-item" div. Correspondingly, you need to change the following in the scss file (under Slideshow Control): height: 440px into 440px * num_rows. 
-        2. You may also change the fixed image size by changing the following:
-            a. scss: .slider-item width: 400px -> changed width; 
-            b. scss: height: 440px -> changed width + padding_bottom;
-            c. javascript: item.style.left = `${(i-1) * 440}px`) -> changed width + padding_left
-        -->
     </div>
    
 </div>
 
 <div class="container blog main first" id="blog-main">
     <h1>
+        Ultra-Fast Convergence!
+    </h1>
+    <p class='text'>
+        The video below presents the extracted mesh during our model's training, with the training timer displayed in the bottom-left corner.
+    </p>
+    <video id="video3" loop playsinline muted autoplay src="clarity/videos/output_video.mp4" style="width: 100%"> </video>
+    <p class="caption">
+        The overall shape is captured within a few seconds.
+    </p>
+</div>
+
+
+
+<div class="container blog main first" id="blog-main">
+    <h1>
         2D Images fitting
     </h1>
     <p class='text'>
-        We use the same linear model to fit high resolution images, see examples below: 
+        We use our model with a single RBF layer dto fit high-resolution images. See examples below. 
     </p>
 
 </div>
@@ -202,25 +206,7 @@
     <div class="slide-content", style="display: none;">
         <video id="video1" loop playsinline muted autoplay src="clarity/videos/girl.mp4" style="width: 75%"> </video>
     </div>
-    <script>
-        // Function to pause and restart video with delay
-        function addPauseBeforeReplay(videoElement, pauseDuration) {
-            videoElement.removeAttribute('loop');  // Disable loop to control manually
     
-            videoElement.addEventListener('ended', function () {
-                setTimeout(() => {
-                    videoElement.currentTime = 0;  // Reset video to start
-                    videoElement.play();
-                }, pauseDuration);
-            });
-        }
-    
-        // Apply to both videos with a 2-second delay (2000 milliseconds)
-        document.addEventListener('DOMContentLoaded', () => {
-            addPauseBeforeReplay(document.getElementById('video1'), 2000);
-            addPauseBeforeReplay(document.getElementById('video2'), 2000);
-        });
-    </script>
     
 
 
@@ -234,14 +220,14 @@
         Radiance Fields
     </h1>
     <p class='text'>
-        We extend our framework to support a higher number of outputs, enabling the estimation of spherical harmonics for novel view generation. the proposed Gaussian RBF-SH radiance architecture is detailed in the following figure.
+        We extend our framework to support a higher number of outputs, enabling the estimation of spherical harmonics for novel view generation. The proposed Gaussian RBF-SH model architecture is illustrated in the figure below.
     </p>
 
 </div>
 <div class="container blog main white">
         <img src="assets/figures/Gaussian RBF-SH.jpg">
         <p class="caption">
-            Network architecture of thre radiance fields model
+            Network architecture of the radiance fields model.
         </p>
     </div>
 </div>
@@ -278,7 +264,7 @@
                 </div>
             </div>
             <p class="caption">
-                Novel views genrated with our model
+                Novel views generated with our model.
             </p>
         </div>
     </div>
@@ -298,5 +284,25 @@
     <script>hljs.initHighlightingOnLoad();</script>
     <script src="clarity/clarity.js"></script>    
     <script src="assets/scripts/main.js"></script>    
+    <script>
+        // Function to pause and restart video with delay
+        function addPauseBeforeReplay(videoElement, pauseDuration) {
+            videoElement.removeAttribute('loop');  // Disable loop to control manually
+    
+            videoElement.addEventListener('ended', function () {
+                setTimeout(() => {
+                    videoElement.currentTime = 0;  // Reset video to start
+                    videoElement.play();
+                }, pauseDuration);
+            });
+        }
+    
+        // Apply to both videos with a 2-second delay (2000 milliseconds)
+        document.addEventListener('DOMContentLoaded', () => {
+            addPauseBeforeReplay(document.getElementById('video1'), 2000);
+            addPauseBeforeReplay(document.getElementById('video2'), 2000);
+            addPauseBeforeReplay(document.getElementById('video3'), 2000);
+        });
+    </script>
     </html>
 </body>
