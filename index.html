@@ -4,14 +4,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clarity: A Minimalist Website Template for AI Research</title>
-    <meta name="description" content="We've presented Clarity, a minimalist and elegant website template for AI research.">
+    <meta name="description" content="We've presented Gaussian RBFNet, a fast and compact framwork for neural fields representation.">
     <meta name="referrer" content="no-referrer-when-downgrade">
     <meta name="robots" content="all">
     <meta content="en_EN" property="og:locale">
-    <meta content="website" property="og:type">
-    <meta content="https://shikun.io/projects/clarity" property="og:url">
-    <meta content="Clarity" property="og:title">
-    <meta content="Website Template for AI Research" property="og:description">
+    <!-- <meta content="website" property="og:type"> -->
+    <!-- <meta content="https://shikun.io/projects/clarity" property="og:url"> -->
+    <meta content="GRBFNet" property="og:title">
+    <meta content="Gaussian Radial Basis Functions for Fast and Accurate Neural Fields Representation and Reconstruction" property="og:description">
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@your_twitter_id">
@@ -51,11 +51,18 @@
     <div class="container blog" id="first-content" style="background-color: #E0E4E6;">
         <!-- If you don't have a project cover: Change "blog-title" into "blog-title no-cover"  -->
      
-            <div class="blog-intro">
+            <div class="blog-intro no-cover">
                 <div>
                     <h1 class="title">Gaussian RBFNet: Gaussian Radial Basis Functions for Fast and
                         Accurate Neural Fields Representation and Reconstruction</h1>
+                        <div>
+
+                        </div>
                     <p class="author">Anonymous Author(s)</p>
+                    <div>
+                        <br>
+                    </div>
+
                     <p class="abstract">
                         We propose Gaussian RBFNet, a novel framework that uses Radial Basis Functions with Gaussian kernels to represent
                         neural fields. We demonstrate its performance in representing 3D geometry, RGB images, and radiance fields.                    </p>
@@ -64,9 +71,7 @@
                 <h1>
                     
                 </h1>
-                <div>
-
-               </div>
+                
                 <div class="info">
                     <div>
                         <a href="https://anonymous.4open.science/r/GRBFNet" class="button icon" style="background-color: rgba(255, 255, 255, 0.25); margin-bottom: 0;">Source Code <i class="fa-solid fa-code"></i></a>
@@ -88,23 +93,12 @@
             Introduction
         </h1>
         <p class='text'>
-            In this paper, we introduce a novel neu-
-            ral representation that is fast, both at training and inference times,
-            and lightweight. Our key observation is that the neurons used in
-            traditional MLPs perform simple computations (a dot product fol-
-            lowed by ReLU activation) and thus one needs to use either wide
-            and deep MLPs or high-resolution and high-dimensional feature
-            grids to parameterize complex nonlinear functions. We show in
-            this paper that by replacing traditional neurons with Radial Basis
-            Function (RBF) kernels, one can achieve highly accurate represen-
-            tation of 2D (RGB images), 3D (geometry), and 5D (radiance fields)
-            signals with just a single layer of such neurons. The representation is highly parallelizable, operates on low-resolution feature grids,
-            and is compact and memory-efficient.        </p>
+            In this paper, we present a novel neural representation that is both fast—during training and inference—and lightweight. Our key insight is that the neurons used in traditional MLPs perform only simple computations, consisting of a dot product followed by a ReLU activation. As a result, achieving complex nonlinear function representations typically requires shallow MLPs and high-resolution, high-dimensional feature grids. In this work, we demonstrate that by replacing traditional neurons with Radial Basis Function (RBF) kernels, we can achieve highly accurate representations of diverse signals, including 2D (RGB images), 3D (geometry), and 5D (radiance fields), using just a single layer of such neurons. Our proposed representation is highly parallelizable, leverages low-resolution feature grids, and offers a compact, memory-efficient solution.        </p>
 
     </div>
 
 
-    <div class="container blog main white extra-large ">
+    <div class="container blog main white ">
             <img src="assets/figures/fig-1.png">
             <p class="caption">
                 we show our model (third figure from the left) compares to other methods, our model stand out with the lienar decoding layer compared to other neural fields models
@@ -115,7 +109,7 @@
 
 
    
-    <div class="container blog main">
+    <div class="container blog main gray">
         <h1 >
             SDF Estimation
         </h1>
@@ -124,28 +118,49 @@
          </p>
     </div>
 
-    <div class="container blog main white extra-large max">
+    <div class="container blog main white extra-large">
         <div class="columns-2">
             <img-comparison-slider class="slider-container white">
                 <figure slot="first" class="before">
                     <img src="assets/figures/ff.png">
-                    <figcaption class="black"><code><b>DiF-Grid(FactorFields)</b></code></figcaption>
+                    <figcaption class="black" style="font-size: 15px;"><code><b>DiF-Grid(FactorFields)</b></code></figcaption>
                 </figure>
                 <figure slot="second" class="after">
                     <img src="assets/figures/ours.png">
-                    <figcaption class="black"><code><b>GRBFNet</b></code></figcaption>
+                    <figcaption class="black" style="font-size: 15px;"><code><b>GRBFNet(Ours)</b></code></figcaption>
                 </figure>
             </img-comparison-slider>
             <img-comparison-slider class="slider-container white">
                 <figure slot="first" class="before">
                     <img src="assets/figures/ff_2.png">
-                    <figcaption class="black"><code><b>DiF-Grid(FactorFields)</b></code></figcaption>
+                    <figcaption class="black" style="font-size: 15px;"><code><b>DiF-Grid(FactorFields)</b></code></figcaption>
                 </figure>
                 <figure slot="second" class="after">
                     <img src="assets/figures/ours_2.png">
-                    <figcaption class="black"><code><b>GRBFNet</b></code></figcaption>
+                    <figcaption class="black" style="font-size: 15px;"><code><b>GRBFNet(Ours)</b></code></figcaption>
                 </figure>
             </img-comparison-slider>
+
+            <img-comparison-slider class="slider-container white">
+            <figure slot="first" class="before">
+                <img src="assets/figures/ff_3.png">
+                <figcaption class="black" style="font-size: 15px;"><code><b>DiF-Grid(FactorFields)</b></code></figcaption>
+            </figure>
+            <figure slot="second" class="after">
+                <img src="assets/figures/ours_3.png">
+                <figcaption class="black" style="font-size: 15px;"><code><b>GRBFNet(Ours)</b></code></figcaption>
+            </figure>
+        </img-comparison-slider>
+        <img-comparison-slider class="slider-container white">
+        <figure slot="first" class="before">
+            <img src="assets/figures/ff_4.png">
+            <figcaption class="black" style="font-size: 15px;"><code><b>DiF-Grid(FactorFields)</b></code></figcaption>
+        </figure>
+        <figure slot="second" class="after">
+            <img src="assets/figures/ours_4.png">
+            <figcaption class="black" style="font-size: 15px;"><code><b>GRBFNet(Ours)</b></code></figcaption>
+        </figure>
+    </img-comparison-slider>
         </div>
         
     
@@ -164,10 +179,62 @@
 
 <div class="container blog main first" id="blog-main">
     <h1>
-        Gaussian RBF-SH radiance fields network
+        2D Images fitting
     </h1>
     <p class='text'>
         We generalize our famework to a higher number of outputs to estimate spherical harmonics which allows performing novel views generation 
+    </p>
+
+</div>
+
+<div class="container blog main gray">
+    <div class="slide-menu">
+        <ul class="dots" id="slide-menu">
+            <li class="dot active"></li>
+            <li class="dot"></li>
+        </ul>
+    </div>
+   
+    <div class="slide-content", style="display: block;">
+        <video id="video2" loop playsinline muted autoplay src="clarity/videos/pluto.mp4" style="width: 75%"> </video>
+    </div>
+
+    <div class="slide-content", style="display: none;">
+        <video id="video1" loop playsinline muted autoplay src="clarity/videos/girl.mp4" style="width: 75%"> </video>
+    </div>
+    <script>
+        // Function to pause and restart video with delay
+        function addPauseBeforeReplay(videoElement, pauseDuration) {
+            videoElement.removeAttribute('loop');  // Disable loop to control manually
+    
+            videoElement.addEventListener('ended', function () {
+                setTimeout(() => {
+                    videoElement.currentTime = 0;  // Reset video to start
+                    videoElement.play();
+                }, pauseDuration);
+            });
+        }
+    
+        // Apply to both videos with a 2-second delay (2000 milliseconds)
+        document.addEventListener('DOMContentLoaded', () => {
+            addPauseBeforeReplay(document.getElementById('video1'), 2000);
+            addPauseBeforeReplay(document.getElementById('video2'), 2000);
+        });
+    </script>
+    
+
+
+    <p class="caption">
+        Zoom-in visualization of reconstructed images generated by our model.
+    </p>
+</div>
+
+<div class="container blog main first" id="blog-main">
+    <h1>
+        Radiance Fields
+    </h1>
+    <p class='text'>
+        We generalize our famework to a higher number of outputs to estimate spherical harmonics which allows performing novel views generation, we propose Gaussian RBF-SH radiance fields detailed in the following figure
     </p>
 
 </div>
@@ -183,7 +250,7 @@
 
 
   
-    <div class="container blog max white">
+    <div class="container blog main white">
         <div class="slideshow">
             <div class="navigation">
                 <!-- Using FontAwesome Pro -->
