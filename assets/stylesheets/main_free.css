@@ -1536,4 +1536,16 @@ select {
 .before figcaption,
 .after figcaption {
   font-size: 70%;
+}
+
+#mesh-viewer-container {
+  margin: 40px auto 40px auto;
+  width: 900px;
+  height: 600px;
+  background: #222;
+  border-radius: 8px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }/*# sourceMappingURL=main_free.css.map */
