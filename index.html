@@ -95,7 +95,7 @@
                     </div>
 
                     <p class="abstract">
-                        We introduce GNF, a novel framework that leverages Gaussian Neural Fields to represent neural fields efficiently. We demonstrate its effectiveness in representing 3D geometry, RGB images, and radiance fields.                    </p>
+                        We introduce GNF, a novel framework that leverages Gaussian Radial basis Functions to represent neural fields efficiently. We demonstrate its effectiveness in representing 3D geometry, RGB images, and radiance fields.                    </p>
                    
                 </div>
                 <h1>
@@ -117,6 +117,11 @@
         </div>
     </div>
 
+    <div class="container blog" style="background-color: #ffffff;">
+        <div style="width: 100%; display: flex; justify-content: center;">
+            <img src="assets/figures/cover.png" alt="GNF Model Overview" style="width: 100%; height: auto; display: block; margin: 0;">
+        </div>
+    </div>
 
     <div class="container blog main first" id="blog-main">
         <h1>
@@ -146,8 +151,8 @@
             SDF Comparison
         </h1>
         <p class='text'>
-            The meshes below show the zero-level sets of the Signed Distance Function (SDF) estimated by our model and the DiF-Grid model from FactorFields.
-            Our model uses approximately 3.5 million parameters and converges in 15 seconds, compared to 5 million parameters and 20 seconds for DiF-Grid. While both models produce comparable results, ours captures finer scene details with fewer parameters and faster convergence.
+            The meshes below show the zero-level sets of the Signed Distance Function (SDF) estimated by our model and the DiF-Grid model from FactorFields <a href="#ref1">[1]</a>.
+            Our model uses approximately 3.5 million parameters and converges in 15 seconds, compared to 5 million parameters and 20 seconds for DiF-Grid <a href="#ref1">[1]</a>. While both models produce comparable results, ours captures finer scene details with fewer parameters and faster convergence.
             For each shape, corresponding views are aligned to allow a direct comparison.
         </p>
     </div>
@@ -162,7 +167,7 @@
                 'synced-mesh-viewers',
                 {
                     gltfPath: 'assets/figures/meshes/xyzrgb_statuette.gltf',
-                    title: 'DiF-Grid'
+                    title: 'DiF-Grid [1]'
                 },
                 {
                     gltfPath: 'assets/figures/meshes/output.gltf',
@@ -247,10 +252,10 @@
         </script>
     </div>
 
-    <!-- <div class="container blog main gray">
+    <div class="container blog main gray">
         <p class='text'>
-            The meshes below show the zero-level sets of the Signed Distance Function (SDF) estimated by our model and the Neurbf model.
-            Our model converges in 15 seconds, compared to 60 seconds for Neurbf. While both models produce comparable results.
+            The meshes below show the zero-level sets of the Signed Distance Function (SDF) estimated by our model and the Neurbf model <a href="#ref2">[2]</a>.
+            Our model converges in 15 seconds, compared to 60 seconds for Neurbf <a href="#ref2">[2]</a>. While both models produce comparable results.
             For each shape, corresponding views are aligned to allow a direct comparison.
         </p>
     </div>
@@ -263,17 +268,18 @@
             new SyncedMeshViewers(
                 'synced-mesh-viewers-neurbf',
                 {
-                    gltfPath: 'assets/figures/meshes/placeholder1.gltf',
+                    gltfPath: 'assets/figures/meshes/Armadillo_nrml-neurbf-v0.ply.glb',
                     title: 'Neurbf'
                 },
                 {
-                    gltfPath: 'assets/figures/meshes/placeholder2.gltf',
+                    gltfPath: 'assets/figures/meshes/Armadillo_nrml-ours.ply.glb',
                     title: 'GNF (Ours)'
                 },
                 {
-                    initialRotation: {x: Math.PI/2, y: 0, z: 0},
+                    initialRotation: {x: 0, y: 0, z: 0},
+                    // initialRotation: {x: -Math.PI/2, y: 0, z: -Math.PI/2},
                     initialZoom: 2.8,
-                    rotationAxis: {x: 0, y: 0, z: 1},
+                    rotationAxis: {x: 0, y: 1, z: 0},
                     lightIntensity: 1,
                     autoRotate: true,
                     autoRotateSpeed: 0.5,
@@ -293,17 +299,17 @@
             new SyncedMeshViewers(
                 'synced-mesh-viewers-neurbf-2',
                 {
-                    gltfPath: 'assets/figures/meshes/placeholder3.gltf',
+                    gltfPath: 'assets/figures/meshes/buddhaPNG_Mesh_TIP19Li_neurbf.ply.glb',
                     title: 'Neurbf'
                 },
                 {
-                    gltfPath: 'assets/figures/meshes/placeholder4.gltf',
+                    gltfPath: 'assets/figures/meshes/buddhaPNG_Mesh_TIP19Li_ours.glb',
                     title: 'GNF (Ours)'
                 },
                 {
-                    initialRotation: {x: 0, y: Math.PI/2, z: 0},
+                    initialRotation: {x: -Math.PI/2, y: 0, z: Math.PI/2},
                     initialZoom: 2.8,
-                    rotationAxis: {x: 0, y: 1, z: 0},
+                    rotationAxis: {x: 0, y: 0, z: 1},
                     lightIntensity: 1,
                     autoRotate: true,
                     autoRotateSpeed: 0.5,
@@ -323,11 +329,11 @@
             new SyncedMeshViewers(
                 'synced-mesh-viewers-neurbf-3',
                 {
-                    gltfPath: 'assets/figures/meshes/placeholder5.gltf',
+                    gltfPath: 'assets/figures/meshes/happy_vrip_nrml-neurbf.ply.glb',
                     title: 'Neurbf'
                 },
                 {
-                    gltfPath: 'assets/figures/meshes/placeholder6.gltf',
+                    gltfPath: 'assets/figures/meshes/happy_vrip_nrml-ours.ply.glb',
                     title: 'GNF (Ours)'
                 },
                 {
@@ -346,7 +352,7 @@
                 }
             );
         </script>
-    </div> -->
+    </div>
 
     <div class="container blog main first" id="blog-main">
         <h1>
@@ -382,24 +388,26 @@
                 <li class="dot"></li>
             </ul>
         </div>
-       
-        <div class="slide-content", style="display: block;">
-            <video id="video2" loop playsinline muted autoplay src="clarity/videos/pluto.mp4" style="width: 75%"> </video>
+        <div class="slide-content" style="display: block; position: relative;">
+            <a class="button icon" id="img_prev_btn" style="position: absolute; left: 0; top: 50%; transform: translateY(-50%); z-index: 2;"><i class="fa-solid fa-arrow-left"></i></a>
+            <video id="video2" loop playsinline muted autoplay src="clarity/videos/pluto.mp4" style="width: 75%"></video>
+            <a class="button icon" id="img_next_btn" style="position: absolute; right: 0; top: 50%; transform: translateY(-50%); z-index: 2;"><i class="fa-solid fa-arrow-right"></i></a>
         </div>
-
-        <div class="slide-content", style="display: none;">
-            <video id="video1" loop playsinline muted autoplay src="clarity/videos/girl.mp4" style="width: 75%"> </video>
+        <div class="slide-content" style="display: none; position: relative;">
+            <a class="button icon" id="img_prev_btn2" style="position: absolute; left: 0; top: 50%; transform: translateY(-50%); z-index: 2;"><i class="fa-solid fa-arrow-left"></i></a>
+            <video id="video1" loop playsinline muted autoplay src="clarity/videos/girl.mp4" style="width: 75%"></video>
+            <a class="button icon" id="img_next_btn2" style="position: absolute; right: 0; top: 50%; transform: translateY(-50%); z-index: 2;"><i class="fa-solid fa-arrow-right"></i></a>
         </div>
-
-        <div class="slide-content", style="display: none;">
-            <video id="video_shibuya" loop playsinline muted autoplay src="clarity/videos/shibuya.mp4" style="width: 75%"> </video>
+        <div class="slide-content" style="display: none; position: relative;">
+            <a class="button icon" id="img_prev_btn3" style="position: absolute; left: 0; top: 50%; transform: translateY(-50%); z-index: 2;"><i class="fa-solid fa-arrow-left"></i></a>
+            <video id="video_shibuya" loop playsinline muted autoplay src="clarity/videos/shibuya.mp4" style="width: 75%"></video>
+            <a class="button icon" id="img_next_btn3" style="position: absolute; right: 0; top: 50%; transform: translateY(-50%); z-index: 2;"><i class="fa-solid fa-arrow-right"></i></a>
         </div>
-        
-        <div class="slide-content", style="display: none;">
-            <video id="video5" loop playsinline muted autoplay src="clarity/videos/weiss.mp4" style="width: 75%"> </video>
+        <div class="slide-content" style="display: none; position: relative;">
+            <a class="button icon" id="img_prev_btn4" style="position: absolute; left: 0; top: 50%; transform: translateY(-50%); z-index: 2;"><i class="fa-solid fa-arrow-left"></i></a>
+            <video id="video5" loop playsinline muted autoplay src="clarity/videos/weiss.mp4" style="width: 75%"></video>
+            <a class="button icon" id="img_next_btn4" style="position: absolute; right: 0; top: 50%; transform: translateY(-50%); z-index: 2;"><i class="fa-solid fa-arrow-right"></i></a>
         </div>
-
-
         <p class="caption">
             Zoom-in visualization of reconstructed images generated by our model.
         </p>
@@ -468,6 +476,34 @@
             </ul>
         </div>
        
+    </div>
+
+    <div class="container blog main gray">
+        <h1>
+            References
+        </h1>
+        <p class='text'>
+            <span id="ref1">[1]</span> Chen, A., Xu, Z., Wei, X., Tang, S., Su, H., & Geiger, A. (2023). Factor fields: A unified framework for neural fields and beyond. arXiv preprint arXiv:2302.01226.<br><br>
+            <span id="ref2">[2]</span> Chen, Z., Li, Z., Song, L., Chen, L., Yu, J., Yuan, J., & Xu, Y. (2023). Neurbf: A neural fields representation with adaptive radial basis functions. In Proceedings of the IEEE/CVF International Conference on Computer Vision (pp. 4182-4194).
+        </p>
+    </div>
+
+    <div style="
+        width: 100%;
+        background: #E0E4E6;
+        padding: 24px 0 12px 0;
+        text-align: center;
+        font-family: 'Poppins', 'Brush Script MT', cursive, sans-serif;
+        font-size: 1.1em;
+        letter-spacing: 0.5px;
+        color: #353535;
+        margin-top: 40px;
+        border-top: 0px solid #eee;
+    ">
+        <span style="font-style: italic; display: inline-block;">
+            <i class="fa-solid fa-paintbrush" style="color:#E2a3a3; margin-right: 8px;"></i>
+            Adapted from <a href="https://github.com/lorenmt/clarity-template" target="_blank" rel="noopener" style="color:#353535; text-decoration: underline dotted;">Clarity Template</a> by @lorenmt
+        </span>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js"></script>

@@ -1,25 +1,51 @@
 //* ======================== Slide Control ===================== */
 var contents = document.getElementsByClassName("slide-content");
+var dots = document.querySelectorAll(".slide-menu .dot");
 
-document.getElementById("slide-menu").addEventListener("click", function(e) {
-  const idx = [...this.children]
-    .filter(el => el.className.indexOf('dot') > -1)
-    .indexOf(e.target);
-    
-  if (idx >= 0) {
-    var prev = document.querySelector(".dot.active");
-    if (prev) prev.classList.remove("active");
-    e.target.classList.add("active");
-    
-    for (var i = 0; i < contents.length; i++) {
-      if (i == idx) {
-        contents[i].style.display = "block";
-      } else {
-        contents[i].style.display = "none";
-      }
-    }  
+function showSlide(idx) {
+  for (var i = 0; i < contents.length; i++) {
+    contents[i].style.display = i === idx ? "block" : "none";
+    if (dots[i]) dots[i].classList.toggle('active', i === idx);
   }
-});
+}
+
+// Dot navigation
+if (document.getElementById("slide-menu")) {
+  document.getElementById("slide-menu").addEventListener("click", function(e) {
+    const idx = [...this.children]
+      .filter(el => el.className.indexOf('dot') > -1)
+      .indexOf(e.target);
+    if (idx >= 0) {
+      showSlide(idx);
+    }
+  });
+}
+
+// Button navigation for zoomed image slider
+const leftBtns = [
+  document.getElementById('img_prev_btn'),
+  document.getElementById('img_prev_btn2'),
+  document.getElementById('img_prev_btn3'),
+  document.getElementById('img_prev_btn4')
+];
+const rightBtns = [
+  document.getElementById('img_next_btn'),
+  document.getElementById('img_next_btn2'),
+  document.getElementById('img_next_btn3'),
+  document.getElementById('img_next_btn4')
+];
+
+let currentSlide = 0;
+function prevSlide() {
+  currentSlide = (currentSlide - 1 + contents.length) % contents.length;
+  showSlide(currentSlide);
+}
+function nextSlide() {
+  currentSlide = (currentSlide + 1) % contents.length;
+  showSlide(currentSlide);
+}
+leftBtns.forEach(btn => btn && btn.addEventListener('click', prevSlide));
+rightBtns.forEach(btn => btn && btn.addEventListener('click', nextSlide));
 
 //* ======================== Video Control ===================== */
 function ToggleVideo(x) {
