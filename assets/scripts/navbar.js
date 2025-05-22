@@ -246,7 +246,7 @@ document.addEventListener('DOMContentLoaded', function() {
     `;
     document.body.appendChild(nav);
 
-    // Get all h1 and h2 elements within container blog main and populate the navbar
+    // Get all h1 elements within container blog main and populate the navbar
     const h1Elements = Array.from(document.querySelectorAll('.container.blog.main h1'));
     const navList = nav.querySelector('.nav-list');
     
@@ -268,24 +268,31 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         navList.appendChild(h1Item);
 
-        // Find all h2 elements until the next h1
-        let nextElement = h1.nextElementSibling;
-        while (nextElement && nextElement.tagName !== 'H1') {
-            if (nextElement.tagName === 'H2') {
-                const h2Element = nextElement; // Store reference for closure
+        // Find all h2 elements within the same .container.blog.main as this h1, until the next h1
+        const container = h1.closest('.container.blog.main');
+        let nextH1 = null;
+        for (const otherH1 of h1Elements) {
+            if (otherH1 !== h1 && otherH1.compareDocumentPosition(h1) & Node.DOCUMENT_POSITION_FOLLOWING) {
+                nextH1 = otherH1;
+                break;
+            }
+        }
+        const h2s = Array.from(container.querySelectorAll('h2'));
+        h2s.forEach(h2 => {
+            // Only include h2s that appear after this h1 and before the next h1
+            if (h2.compareDocumentPosition(h1) & Node.DOCUMENT_POSITION_PRECEDING && (!nextH1 || (h2.compareDocumentPosition(nextH1) & Node.DOCUMENT_POSITION_FOLLOWING))) {
                 const h2Item = document.createElement('li');
                 h2Item.className = 'nav-item h2';
-                h2Item.textContent = h2Element.textContent.trim();
+                h2Item.textContent = h2.textContent.trim();
                 h2Item.addEventListener('click', () => {
-                    h2Element.scrollIntoView({ behavior: 'smooth' });
+                    h2.scrollIntoView({ behavior: 'smooth' });
                     if (window.innerWidth < 768) {
                         resetNavbarState();
                     }
                 });
                 navList.appendChild(h2Item);
             }
-            nextElement = nextElement.nextElementSibling;
-        }
+        });
     });
 
     // Collapse button handling for desktop
@@ -306,8 +313,6 @@ document.addEventListener('DOMContentLoaded', function() {
             document.body.style.overflow = nav.classList.contains('expanded') ? 'hidden' : '';
         }
     });
-
-
 
     // Scroll handling
     let lastScrollTop = 0;

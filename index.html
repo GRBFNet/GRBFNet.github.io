@@ -105,7 +105,7 @@
                 <div class="info">
                     <div>
                         <a href="https://anonymous.4open.science/r/GRBFNet" class="button icon" style="background-color: rgba(255, 255, 255, 0.25); margin-bottom: 0;">Source Code <i class="fa-solid fa-code"></i></a>
-                        <a href="https://arxiv.org/abs/2503.06762" class="button icon" style="background-color: rgba(255, 255, 255, 0.25); margin-bottom: 0;"> Paper <i class="fa-solid fa-sheet-plastic"></i></a>
+                        <a href="" class="button icon" style="background-color: rgba(255, 255, 255, 0.25); margin-bottom: 0;"> Paper <i class="fa-solid fa-sheet-plastic"></i></a>
                     </div>
                     
             </div>
@@ -150,6 +150,9 @@
         <h1>
             SDF Comparison
         </h1>
+        <h2>
+            Comparison with DiF-Grid
+        </h2>
         <p class='text'>
             The meshes below show the zero-level sets of the Signed Distance Function (SDF) estimated by our model and the DiF-Grid model from FactorFields <a href="#ref1">[1]</a>.
             Our model uses approximately 3.5 million parameters and converges in 15 seconds, compared to 5 million parameters and 20 seconds for DiF-Grid <a href="#ref1">[1]</a>. While both models produce comparable results, ours captures finer scene details with fewer parameters and faster convergence.
@@ -250,12 +253,12 @@
                 }
             );
         </script>
-    </div>
-
-    <div class="container blog main gray">
+        <h2>
+            Comparison with NeuRBF
+        </h2>
         <p class='text'>
-            The meshes below show the zero-level sets of the Signed Distance Function (SDF) estimated by our model and the Neurbf model <a href="#ref2">[2]</a>.
-            Our model converges in 15 seconds, compared to 60 seconds for Neurbf <a href="#ref2">[2]</a>. While both models produce comparable results.
+            The meshes below show the zero-level sets of the Signed Distance Function (SDF) estimated by our model and the NeuRBF model <a href="#ref2">[2]</a>.
+            Our model converges in 15 seconds, compared to 60 seconds for NeuRBF <a href="#ref2">[2]</a>. While both models produce comparable results.
             For each shape, corresponding views are aligned to allow a direct comparison.
         </p>
     </div>
@@ -269,7 +272,7 @@
                 'synced-mesh-viewers-neurbf',
                 {
                     gltfPath: 'assets/figures/meshes/Armadillo_nrml-neurbf-v0.ply.glb',
-                    title: 'Neurbf'
+                    title: 'NeuRBF'
                 },
                 {
                     gltfPath: 'assets/figures/meshes/Armadillo_nrml-ours.ply.glb',
@@ -300,7 +303,7 @@
                 'synced-mesh-viewers-neurbf-2',
                 {
                     gltfPath: 'assets/figures/meshes/buddhaPNG_Mesh_TIP19Li_neurbf.ply.glb',
-                    title: 'Neurbf'
+                    title: 'NeuRBF'
                 },
                 {
                     gltfPath: 'assets/figures/meshes/buddhaPNG_Mesh_TIP19Li_ours.glb',
@@ -330,7 +333,7 @@
                 'synced-mesh-viewers-neurbf-3',
                 {
                     gltfPath: 'assets/figures/meshes/happy_vrip_nrml-neurbf.ply.glb',
-                    title: 'Neurbf'
+                    title: 'NeuRBF'
                 },
                 {
                     gltfPath: 'assets/figures/meshes/happy_vrip_nrml-ours.ply.glb',
@@ -482,10 +485,26 @@
         <h1>
             References
         </h1>
-        <p class='text'>
-            <span id="ref1">[1]</span> Chen, A., Xu, Z., Wei, X., Tang, S., Su, H., & Geiger, A. (2023). Factor fields: A unified framework for neural fields and beyond. arXiv preprint arXiv:2302.01226.<br><br>
-            <span id="ref2">[2]</span> Chen, Z., Li, Z., Song, L., Chen, L., Yu, J., Yuan, J., & Xu, Y. (2023). Neurbf: A neural fields representation with adaptive radial basis functions. In Proceedings of the IEEE/CVF International Conference on Computer Vision (pp. 4182-4194).
-        </p>
+        <div style="margin-bottom: 1em;">
+          <b>[1] Factor Fields:</b><br>
+          <span style="font-style: italic;">
+            Chen, A., Xu, Z., Wei, X., Tang, S., Su, H., & Geiger, A. (2023).
+            <a href="https://arxiv.org/abs/2302.01226" target="_blank" rel="noopener">
+              Factor Fields: A Unified Framework for Neural Fields and Beyond
+            </a>.
+            arXiv preprint arXiv:2302.01226.
+          </span>
+        </div>
+        <div style="margin-bottom: 1em;">
+          <b>[2] NeuRBF:</b><br>
+          <span style="font-style: italic;">
+            Chen, Z., Li, Z., Song, L., Chen, L., Yu, J., Yuan, J., & Xu, Y. (2023).
+            <a href="https://arxiv.org/abs/2309.15426" target="_blank" rel="noopener">
+              NeuRBF: A Neural Fields Representation with Adaptive Radial Basis Functions
+            </a>.
+            In Proceedings of the IEEE/CVF International Conference on Computer Vision (pp. 4182-4194).
+          </span>
+        </div>
     </div>
 
     <div style="
